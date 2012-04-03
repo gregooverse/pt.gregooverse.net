@@ -1,3 +1,4 @@
+/* Syntax highlight */
 SyntaxHighlighter.autoloader(
     'asm    js/sxhl/shBrushAsm.js',
     'sql    js/sxhl/shBrushSql.js',
@@ -8,5 +9,6 @@ SyntaxHighlighter.defaults['gutter'] = false;
 SyntaxHighlighter.defaults['toolbar'] = false;
 SyntaxHighlighter.all();
 
+/* Jquery UI */
 $(".accordion").accordion({ autoHeight: false, collapsible: true });
 $(".tabs").tabs({ collapsible: true });
