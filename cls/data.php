@@ -19,5 +19,29 @@ class data {
 
         return $content;
     }
+    
+    public static function replace(&$content, $data, $start, $length = false, $pad = false, $direction = STR_PAD_RIGHT){
+        $size = $length;
+
+        if($size === false)
+            $size = strlen($data);
+
+        if(!$size)
+            return;
+
+        $end = $start + $size;
+
+        if(strlen($content) < $end)
+            page::error("The submitted data is too big.");
+
+        if($length !== false){
+            if($pad === false)
+                $pad = pack('h*', 00);
+
+            $data = str_pad($data, $size, $pad, $direction);
+        }
+
+        $content = substr($content, 0, $start) . $data . substr($content, $end);
+    }
 }
 ?>
