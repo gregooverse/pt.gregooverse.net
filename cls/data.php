@@ -6,7 +6,7 @@ class data {
     public static function read($file){
         if(!file_exists($file)){
             trigger_error('data::read(' . $file . ')', E_USER_WARNING);
-            page::error("data::read - The file doesn't exist.");
+            page::error("data::read - The file (" . $file . ") doesn't exist.");
         }
 
         $content = false;
