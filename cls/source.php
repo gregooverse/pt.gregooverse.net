@@ -50,7 +50,7 @@ class source {
         $pos = strrpos($file, '.'); 
         if($pos !== false && substr($file, $pos + 1) == 'php')
                 if(file_exists($file)) {
-                    echo '<h3><a href="#">Source</a></h3>';
+                    echo '<h3><a href="#">Source: ', $file, '</a></h3>';
                     echo '<div>', highlight_file($file, true), '</div>';
                 }
     }
