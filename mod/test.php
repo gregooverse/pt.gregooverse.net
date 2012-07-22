@@ -60,4 +60,4 @@ blah blah blah
 
 <p>blah blah blah</p>
 
-<?php data::read('/etc/prout'); ?>
+<?php //data::read('/etc/prout'); ?>
