@@ -67,7 +67,28 @@ header {
 
 .body p {
     font-family: sans-serif;
-    font-size:12px;
+    font-size:14px;
+    padding-left:5px;
+    padding-right:5px;
+    text-align:justify;
+}
+
+.body p.img {
+    text-align:center;
+}
+
+.body pre {
+    overflow:auto;
+    padding:2px 5px;
+    margin-left:5px;
+    margin-right:5px;
+    border:1px solid #DDD;
+}
+
+.body h4 {
+    border-bottom:1px dashed #DDD;
+    margin-bottom:0;
+    padding-left:10px;
 }
 
 footer {
