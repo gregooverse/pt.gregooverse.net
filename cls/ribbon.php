@@ -16,11 +16,15 @@ class ribbon {
     
     public static function out(){
         foreach(ribbon::$elements as $k => $v)
-            echo '<a href="?p=' . urlencode($k) . '">' . $v . '</a>';
+            echo '<a href="?p=' . urlencode($k) . '">' . ribbon::nbsp($v) . '</a> ';
     }
     
     public static function in($module){
         return isset(ribbon::$elements[$module]);
+    }
+    
+    public static function nbsp($text){
+        return str_replace(' ', '&nbsp;', $text);
     }
 }
 ?>

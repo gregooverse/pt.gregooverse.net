@@ -1,4 +1,7 @@
 <?php
+// Website name
+$conf_website = 'beta.gregooverse.net';
+
 // Website ribbon
 ribbon::adds(array(
     'Test' => 'test',

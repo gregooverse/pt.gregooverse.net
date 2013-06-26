@@ -2,7 +2,7 @@
 <div class="body"><?php 
     if(page::get('p') !== false) {
         if(ribbon::in(page::get('p'))) {
-            if(file_exists('mod/' . page::get('p') . '.php')){
+            if(file::exists('mod/' . page::get('p') . '.php')){
                 crumbs::page();
                 echo '<h1>', page::title(false), '</h1>';
                 require_once 'mod/' . page::get('p') . '.php'; 

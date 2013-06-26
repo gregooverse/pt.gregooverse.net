@@ -46,12 +46,24 @@ class page {
         exit(0);
     }
     
-    public static function title($dash = true){
+    public static function title($full = false){
+        global $conf_website;
+        
+        $title = false;
         $page = page::get('p');
         
         if($page !== false)
-            if(ribbon::in($page))
-                return (($dash) ? ' - ' : false) . ribbon::$elements[$page];
+            if(ribbon::in($page)){
+                $title .= ribbon::$elements[$page];
+                
+                if($full)
+                    $title .= ' - ';
+            }
+                
+        if($full)
+            $title .= $conf_website;
+                
+        return $title; 
     }
 }
 ?>
