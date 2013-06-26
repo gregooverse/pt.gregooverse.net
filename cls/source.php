@@ -15,7 +15,7 @@ class source {
 
             if($f == '.' || $f == '..')
                 continue;
-//echo $e;
+
             if(is_dir($e)){
                 echo '<li>', $e, source::tree($path . $f . '/'), '</li>';
                 continue;
