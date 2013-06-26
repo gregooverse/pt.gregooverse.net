@@ -9,7 +9,7 @@
         <script src='//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js' type='text/javascript'></script>
         
         <!-- yetii -->
-        <script type="text/javascript" src="js/yetii.min.js"></script>-
+        <script type="text/javascript" src="js/yetii.min.js"></script>
         
         <!-- syntax highlighter -->
         <link href="js/sxhl/shThemeDefault.css" rel="stylesheet" type="text/css" />
@@ -28,7 +28,5 @@
 	    <link href="style.css" rel="stylesheet" type='text/css'>
     </head> 
     <body>
-        <header>
-            <? echo $conf_website; ?>
-        </header>
+        <header><? echo $conf_website; ?></header>
         <?php require_once 'inc/ribbon.php'; ?>

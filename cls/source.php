@@ -2,55 +2,43 @@
 if(!defined('PT_GREGOOVERSE_NET')) exit;
 
 class source {
+    
+    static public $exclude = array('');
 
-    public static function scan($path = false){
+    public static function tree($path = false){
         $tree = array();
+        
+        echo '<ul>';
         
         foreach(glob($path . '*') as $e){
             $f = basename($e);
 
             if($f == '.' || $f == '..')
                 continue;
-
-            if(is_dir($e))
-                $tree[$e] = source::scan($path . $f . '/');
+//echo $e;
+            if(is_dir($e)){
+                echo '<li>', $e, source::tree($path . $f . '/'), '</li>';
+                continue;
+            }
 
             $pos = strrpos($f, '.'); 
-            if($pos !== false && substr($f, $pos + 1) == 'php') 
-                $tree[$e] = $f;
-        }
-
-        return $tree;
-    }
-
-    public static function tree($tree = false){
-        if(!$tree)
-            $tree = source::scan();
-
-        echo '<ul>';
-        
-        foreach($tree as $e => $f){
-            if(is_array($f)){
-                if(count($f)){
-                    echo '<li>', $e, '</li>';
-
-                    source::tree($f);
-                }
-            } else {
+            if($pos !== false && substr($f, $pos + 1) == 'php')
                 echo '<li><a href="?p=source&f=', urlencode($e), '">', $f, '</a></li>';
-            }
-        }          
+            else
+                echo '<li>', $f, '</li>';
+        }
         
         echo '</ul>';
     }
     
-    public static function out($file){
+    public static function exists($file){
         $pos = strrpos($file, '.'); 
-        if($pos !== false && substr($file, $pos + 1) == 'php')
-                if(file::exists($file)) {
-                    echo '<h3><a href="#">Source: ', $file, '</a></h3>';
-                    echo '<div>', highlight_file($file, true), '</div>';
-                }
+        
+        return $pos !== false && substr($file, $pos + 1) == 'php' && file::exists($file);
+    }
+    
+    public static function show($file){
+        echo highlight_file($file, true);
     }
 }
 ?>
